@@ -1,0 +1,83 @@
+<configuration name="cmpp.conf" description="CMPP2.0 Parameter Configuration">
+    <settings>
+        <!--SP的6位企业代码-->
+        <param name="SP_Id" value="123456"/>
+        <!--信息标识，由SP接入的短信网关本身产生，本处填空。-->
+        <param name="Msg_Id" value="0"/>
+        <!--相同Msg_Id的信息总条数，从1开始-->
+        <param name="Pk_total" value="1"/>
+        <!--相同Msg_Id的信息序号，从1开始-->
+        <param name="Pk_number" value="1"/>
+        <!--是否要求返回状态确认报告：0：不需要,1：需要-->
+        <param name="Registered_Delivery" value="1"/>
+        <!--信息级别 0-->
+        <param name="Msg_level" value="1"/>
+        <!--10位业务标识，是数字、字母和符号的组合, 用户自定义，用来查询-->
+        <param name="Service_Id" value="service_id_test"/>
+        <!--计费用户类型字段:
+            0：对目的终端MSISDN计费；
+            1：对源终端MSISDN计费；
+            2：对SP计费;
+            3：表示本字段无效，对谁计费参见Fee_terminal_Id字段。-->
+        <param name="Fee_UserType" value="0"/>
+        <!--被计费用户的号码（如本字节填空，则表示本字段无效，
+            对谁计费参见Fee_UserType字段，本字段与Fee_UserType字段互斥）-->
+        <param name="Fee_terminal_Id" value=""/>
+        <!--GSM协议类型。详细是解释请参考GSM03.40中的9.2.3.9-->
+        <param name="TP_pId" value="0"/>
+        <!--GSM协议类型。详细是解释请参考GSM03.40中的9.2.3.23,仅使用1位，右对齐-->
+        <param name="TP_udhi" value="0"/>
+        <!--信息格式:
+            0：ASCII串
+            3：短信写卡操作
+            4：二进制信息
+            8：UCS2编码
+            15：含GB汉字,
+            24:闪信......-->
+        <param name="Msg_Fmt" value="24"/>
+        <!--信息内容来源(SP_Id)，6位的企业代码-->
+        <param name="Msg_src" value="123456"/>
+        <!--资费类别:
+            01：对“计费用户号码”免费
+            02：对“计费用户号码”按条计信息费
+            03：对“计费用户号码”按包月收取信息费
+            04：对“计费用户号码”的信息费封顶
+            05：对“计费用户号码”的收费是由SP实现-->
+        <param name="FeeType" value="01"/>
+        <!--资费代码（以分为单位）-->
+        <param name="FeeCode" value="5"/>
+        <!--存活有效期，格式遵循SMPP3.3协议,17byte-->
+        <param name="ValId_Time" value=""/>
+        <!--定时发送时间，格式遵循SMPP3.3协议,17byte-->
+        <param name="At_Time" value=""/>
+        <!--源号码, SP的服务代码或前缀为服务代码的长号码，最终显示为主叫号码  -->
+        <param name="Src_Id" value="111111"/>
+        <!--接收信息的用户数量(小于100个用户)-->
+        <param name="DestUsr_tl" value="1"/>
+        <!--接收业务的MSISDN号码, 被叫号码-->
+        <param name="Dest_terminal_Id" value=""/>
+        <!--信息长度(Msg_Fmt值为0时：<160个字节；其它<=140个字节)-->
+        <param name="Msg_Length" value="0"/>
+        <!--消息内容-->
+        <param name="Msg_Content" value=""/>
+        <!--保留-->
+        <param name="Reserve" value=""/>
+        <!--双方协商的版本号，用于connect-->
+        <param name="Version" value="0"/>
+        <!--由中国移动与源地址实体事先商定-->
+        <param name="Share_secret" value="Sc_123456"/>
+        <!--对接mas的服务器url-->
+        <param name="mas_url" value="192.168.1.104"/>
+        <!--对接mas的服务器port, 长连接-->
+        <param name="mas_port" value="7890"/>
+        <!--log file path-->
+        <param name="log_file_path" value="/var/log/cmpp.log"/>
+        <!--socket连接超时后等待时间-->
+        <param name="timeout" value="60"/>
+        <!--socket消息总计重发次数-->
+        <param name="timeout_number" value="3"/>
+        <!--等待状态报告时间-->
+        <param name="timeout_deliver" value="48"/>
+    </settings>
+</configuration>
+
